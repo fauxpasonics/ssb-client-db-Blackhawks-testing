@@ -1,0 +1,53 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+CREATE view [segmentation].[vw__Fanatics_Customers]
+as
+
+
+SELECT D.SSB_CRMSYSTEM_CONTACT_ID,
+       F.FAN_ID,
+       F.NAME_FIRST,
+       F.NAME_LAST,
+       F.ADDRESS2,
+       F.ADDRESS1,
+       F.CITY1,
+       F.REGION_FT,
+       F.POSTCODE1,
+       F.EMAIL,
+       F.IN_MARKET_IND,
+       F.DIRECT_MAIL_ELIGIBLE,
+       F.SEX_FT,
+       F.TELNR_MOBILE,
+       F.TELNR_LONG,
+       F.LANGUAGE_FT,
+       F.IN_MARKET,
+       F.DATA_SOURCE_NM,
+       F.CREATE_SEASON,
+       F.FAVORITE_TEAM_NAME,
+       F.FAVORITE_TEAM_CODE,
+       F.NHL_COUNTRY_ISO,
+       F.SHOP_LAST_PURCHASE_DATE,
+       F.SHOP_TOTAL_REVENUE,
+       F.SHOP_TOTAL_ORDERS,
+       F.LAST_EMAIL_OPEN_DATE,
+       F.LAST_EMAIL_CLICK_DATE,
+       F.LAST_ACTIVITY_DATE,
+       F.GCL_TOTAL_REVENUE,
+       F.GCL_TOTAL_ORDERS,
+       F.GCL_LAST_VIEW_DATE,
+       F.GCL_LAST_PURCHASE_DATE,
+       F.DEVICE_TYPE,
+       F.PLATFORM,
+       F.ACTIVITY_SOURCE,
+       F.SHOP_RECENCY_CODE,
+       F.SHOP_FREQUENCY_CODE,
+       F.SHOP_MONETARY_CODE 
+
+
+FROM ods.Fanatics_Customer F
+JOIN dbo.vwDimCustomer_ModAcctId D
+ON F.FAN_ID = D.SSID AND D.SourceSystem = 'fANATICS'
+
+GO

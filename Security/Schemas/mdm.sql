@@ -1,0 +1,7 @@
+CREATE SCHEMA [mdm]
+AUTHORIZATION [dbo]
+GO
+GRANT INSERT ON SCHEMA:: [mdm] TO [svcssbrp]
+GO
+GRANT SELECT ON SCHEMA:: [mdm] TO [svcssbrp]
+GO

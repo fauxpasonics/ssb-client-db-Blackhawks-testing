@@ -1,0 +1,52 @@
+CREATE TABLE [ods].[Fanatics_Customer]
+(
+[ETL_ID] [int] NOT NULL IDENTITY(1, 1),
+[ETL_CreatedDate] [datetime] NOT NULL CONSTRAINT [DF__Fanatics___ETL_C__72FBE1CB] DEFAULT (getdate()),
+[ETL_UpdatedDate] [datetime] NOT NULL CONSTRAINT [DF__Fanatics___ETL_U__73F00604] DEFAULT (getdate()),
+[ETL_IsDeleted] [bit] NOT NULL CONSTRAINT [DF__Fanatics___ETL_I__74E42A3D] DEFAULT ((0)),
+[ETL_DeletedDate] [datetime] NULL,
+[ETL_DeltaHashKey] [binary] (32) NULL,
+[ETL_FileName] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+[FAN_ID] [bigint] NOT NULL,
+[NAME_FIRST] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[NAME_LAST] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[ADDRESS2] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[ADDRESS1] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[CITY1] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[REGION_FT] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[POSTCODE1] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[EMAIL] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[IN_MARKET_IND] [bit] NULL,
+[DIRECT_MAIL_ELIGIBLE] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[SEX_FT] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[TELNR_MOBILE] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[TELNR_LONG] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[LANGUAGE_FT] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[IN_MARKET] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[DATA_SOURCE_NM] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[CREATE_SEASON] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[FAVORITE_TEAM_NAME] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[FAVORITE_TEAM_CODE] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[NHL_COUNTRY_ISO] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[SHOP_LAST_PURCHASE_DATE] [date] NULL,
+[SHOP_TOTAL_REVENUE] [decimal] (14, 2) NULL,
+[SHOP_TOTAL_ORDERS] [int] NULL,
+[LAST_EMAIL_OPEN_DATE] [date] NULL,
+[LAST_EMAIL_CLICK_DATE] [date] NULL,
+[LAST_ACTIVITY_DATE] [date] NULL,
+[GCL_TOTAL_REVENUE] [decimal] (14, 2) NULL,
+[GCL_TOTAL_ORDERS] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[GCL_LAST_VIEW_DATE] [date] NULL,
+[GCL_LAST_PURCHASE_DATE] [date] NULL,
+[DEVICE_TYPE] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[PLATFORM] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[ACTIVITY_SOURCE] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[SHOP_RECENCY_CODE] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[SHOP_FREQUENCY_CODE] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[SHOP_MONETARY_CODE] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+)
+GO
+ALTER TABLE [ods].[Fanatics_Customer] ADD CONSTRAINT [PK__Fanatics__7EF6BFCDDB047C24] PRIMARY KEY CLUSTERED  ([ETL_ID])
+GO
+CREATE NONCLUSTERED INDEX [IX_FANATICS_CUSTOMER_FAN_ID] ON [ods].[Fanatics_Customer] ([FAN_ID])
+GO

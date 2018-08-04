@@ -1,0 +1,13 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+
+CREATE VIEW [rpt].[vw_CurrentTimezoneOffset]
+AS
+SELECT UTCOffset, GETDATE() AS CurrentDateTime
+FROM dbo.DimDate
+WHERE CalDate = CAST(GETDATE() AS DATE)
+GO
